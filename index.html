@@ -57,7 +57,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
 
   <script>
-
+    
     //Simple animation
     function moveElement(selector, xValue, delayValue) {
       gsap.from(selector, { x: xValue, duration: 1, alpha: 0, delay: delayValue });
@@ -67,7 +67,7 @@
     moveElement(".card__title", -100, .8);
     moveElement(".card__description", -100, 1.1);
     moveElement(".card__link", -100, 1.4);
-
+    
     
     //set the variables
     var dolphinBtn = document.getElementById("dolphin-btn");
@@ -76,28 +76,29 @@
     var islandCard = document.getElementById("island");
     var earthBtn = document.getElementById("earth-btn");
     var earthCard = document.getElementById("earth");
+    // var fadeIn = gsap.from( ".card", { x: -100, alpha: 0, duration: 1});
+    // var fadeOut = gsap.to( ".card", { x: -100, alpha: 0, duration: 1});
     
     //on click event
     dolphinBtn.addEventListener("click", showDolphin);
     function showDolphin() {
       dolphinCard.classList.toggle("hideCard");
-      islandCard.className = hideCard;
-      earthCard.className = hideCard;
+      // islandCard.className = hideCard;
+      // earthCard.className = hideCard;
     }
     islandBtn.addEventListener("click", showIsland);
     function showIsland() {
       islandCard.classList.toggle("hideCard");
-      dolphinCard.className = hideCard;
-      earthCard.className = hideCard;
+      // dolphinCard.className = hideCard;
+      // earthCard.className = hideCard;
     }
     earthBtn.addEventListener("click", showEarth);
     function showEarth() {
       earthCard.classList.toggle("hideCard");
-      dolphinCard.className = hideCard;
-      islandCard.className = hideCard;
+      // dolphinCard.className = hideCard;
+      // islandCard.className = hideCard;
     }
- 
-
+    
   </script>
 </body>
 </html>
