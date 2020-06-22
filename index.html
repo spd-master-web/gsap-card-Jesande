@@ -12,7 +12,7 @@
 
   <div class="wrapper">
 
-    <article class="card" id="dolphin">
+    <article class="card hideCard" id="dolphin">
       <img src="img/dolphin.svg" width="180" alt="Dolphin illustration." class="card__image">
       <img src="img/blob-1.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -21,8 +21,8 @@
         <a href="#" class="card__link">Learn about the research</a>
       </header>
     </article>
-<!-- 
-    <article class="card" id="island">
+
+    <article class="card hideCard" id="island">
       <img src="img/island.svg" width="180" alt="Island illustration." class="card__image">
       <img src="img/blob-2.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -32,7 +32,7 @@
       </header>
     </article>
 
-    <article class="card" id="earth">
+    <article class="card hideCard" id="earth">
       <img src="img/earth.svg" width="180" alt="Planet Earth illustration." class="card__image">
       <img src="img/blob-3.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -40,15 +40,15 @@
         <p class="card__description">A report by experts from 27 national science academies has set out the widespread damage global heating is already causing to people’s health and the increasingly serious impacts expected in future. Scorching heatwaves and floods will claim more victims as extreme weather increases but there are serious indirect effects too, from spreading mosquito-borne diseases to worsening mental health.</p>
         <a href="#" class="card__link">Read the  health report</a>
       </header>
-    </article>  -->
+    </article> 
 
   </div>
 
   <nav class="navigation">
     <ul class="navigation__list">
-      <li class="navigation__listitem"><a href="#dolphin" class="navigation__link">Dolphins and plastic</a></li>
-      <li class="navigation__listitem"><a href="#island" class="navigation__link">Palm oil effects</a></li>
-      <li class="navigation__listitem"><a href="#earth" class="navigation__link">Climate crisis</a></li>
+      <li class="navigation__listitem"><a href="#dolphin" class="navigation__link" id="dolphin-btn">Dolphins and plastic</a></li>
+      <li class="navigation__listitem"><a href="#island" class="navigation__link" id="island-btn">Palm oil effects</a></li>
+      <li class="navigation__listitem"><a href="#earth" class="navigation__link" id="earth-btn">Climate crisis</a></li>
     </ul>
   </nav>
 
@@ -57,6 +57,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
 
   <script>
+
+    //Simple animation
     function moveElement(selector, xValue, delayValue) {
       gsap.from(selector, { x: xValue, duration: 1, alpha: 0, delay: delayValue });
     };
@@ -65,6 +67,37 @@
     moveElement(".card__title", -100, .8);
     moveElement(".card__description", -100, 1.1);
     moveElement(".card__link", -100, 1.4);
+
+    
+    //set the variables
+    var dolphinBtn = document.getElementById("dolphin-btn");
+    var dolphinCard = document.getElementById("dolphin");
+    var islandBtn = document.getElementById("island-btn");
+    var islandCard = document.getElementById("island");
+    var earthBtn = document.getElementById("earth-btn");
+    var earthCard = document.getElementById("earth");
+    
+    //on click event
+    dolphinBtn.addEventListener("click", showDolphin);
+    function showDolphin() {
+      dolphinCard.classList.toggle("hideCard");
+      islandCard.className = hideCard;
+      earthCard.className = hideCard;
+    }
+    islandBtn.addEventListener("click", showIsland);
+    function showIsland() {
+      islandCard.classList.toggle("hideCard");
+      dolphinCard.className = hideCard;
+      earthCard.className = hideCard;
+    }
+    earthBtn.addEventListener("click", showEarth);
+    function showEarth() {
+      earthCard.classList.toggle("hideCard");
+      dolphinCard.className = hideCard;
+      islandCard.className = hideCard;
+    }
+ 
+
   </script>
 </body>
 </html>
