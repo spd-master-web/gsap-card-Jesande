@@ -8,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Taviraj|Work+Sans:300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="hideCards()">
 
   <div class="wrapper">
 
-    <article class="card hideCard" id="dolphin">
+    <article class="card" id="dolphin">
       <img src="img/dolphin.svg" width="180" alt="Dolphin illustration." class="card__image">
       <img src="img/blob-1.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -22,7 +22,7 @@
       </header>
     </article>
 
-    <article class="card hideCard" id="island">
+    <article class="card" id="island" >
       <img src="img/island.svg" width="180" alt="Island illustration." class="card__image">
       <img src="img/blob-2.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -32,7 +32,7 @@
       </header>
     </article>
 
-    <article class="card hideCard" id="earth">
+    <article class="card" id="earth" >
       <img src="img/earth.svg" width="180" alt="Planet Earth illustration." class="card__image">
       <img src="img/blob-3.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -46,9 +46,6 @@
 
   <nav class="navigation">
     <ul class="navigation__list">
-      <!-- <li class="navigation__listitem"><a href="#dolphin" class="navigation__link" id="dolphin-btn">Dolphins and plastic</a></li>
-      <li class="navigation__listitem"><a href="#island" class="navigation__link" id="island-btn">Palm oil effects</a></li>
-      <li class="navigation__listitem"><a href="#earth" class="navigation__link" id="earth-btn">Climate crisis</a></li> -->
       <li class="navigation__listitem"><a href="#dolphin" class="navigation__link" id="dolphin-btn" onclick="fadeIn()">Dolphins and plastic</a></li>
       <li class="navigation__listitem"><a href="#island" class="navigation__link" id="island-btn" onclick="fadeIn()">Palm oil effects</a></li>
       <li class="navigation__listitem"><a href="#earth" class="navigation__link" id="earth-btn" onclick="fadeIn()">Climate crisis</a></li>
@@ -61,16 +58,6 @@
 
   <script>
 
-    //Simple animation with timeline
-    function fadeIn() {
-      var timeline = gsap.timeline();
-        timeline.from(".card__image--bg", {x:-100, duration: .5, alpha: 0})
-        timeline.from(".card__image", {x:-100, duration: .5, alpha: 0})
-        timeline.from(".card__title", {x:-100, duration: .5, alpha: 0})
-        timeline.from(".card__description", {x:-100, duration: .5, alpha: 0})
-        timeline.from(".card__link", {x:-100, uration: .5, alpha: 0});
-    };
-    
     //set the variables
     var dolphinBtn = document.getElementById("dolphin-btn");
     var dolphinCard = document.getElementById("dolphin");
@@ -78,6 +65,26 @@
     var islandCard = document.getElementById("island");
     var earthBtn = document.getElementById("earth-btn");
     var earthCard = document.getElementById("earth");
+    
+    
+    //hide Cards on load
+    function hideCards() {
+      dolphinCard.style.display = 'grid';
+      islandCard.style.display = 'none';
+      earthCard.style.display = 'none';
+    }
+
+    //Simple animation with timeline
+    function fadeIn() {
+      var timeline = gsap.timeline();
+      timeline.from(".card__image--bg", {x:-100, duration: .5, alpha: 0})
+      timeline.to(".card__image--bg" , {scale:.98, duration: 2, repeat: -1, yoyo: true}, .5)
+      timeline.from(".card__image", {x:-100, duration: .5, alpha: 0}, .5)
+      timeline.from(".card__image", {y:5 , duration: 1, repeat: -1, yoyo: true}, 1); 
+      timeline.from(".card__title", {x:-100, duration: .5, alpha: 0}, 1)
+      timeline.from(".card__description", {x:-100, duration: .5, alpha: 0}, 1.5)
+      timeline.from(".card__link", {x:-100, duration: .5, alpha: 0}, 2);
+    };
     
     
     //on click event
