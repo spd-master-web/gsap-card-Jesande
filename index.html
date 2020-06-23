@@ -60,23 +60,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
 
   <script>
-    
-    // function fadeIn() {
-    //   var tl= gsap.timeline()
-    //     .from(".card__image--bg", {x:-100, delay: .2, duration: 1, alpha: 0})
-    //     .from(".card__image", {x:-100, delay: .4, duration: 1, alpha: 0})
-    //     .from(".card__title", {x:-100, delay: .6, duration: 1, alpha: 0})
-    //     .from(".card__description", {x:-100, delay: .8, duration: 1, alpha: 0})
-    //     .from(".card__link", {x:-100, delay: 1, duration: 1, alpha: 0});
-    // };
 
     //Simple animation with timeline
-
-    // var fadeIn = gsap.timeline()
-    
-    // ".card__image--bg", {x:-100, delay: .2, duration: 1, alpha: 0, paused: true });
-    
-    // var fadeIn = gsap.timeline()
     function fadeIn() {
       var timeline = gsap.timeline();
         timeline.from(".card__image--bg", {x:-100, duration: .5, alpha: 0})
@@ -94,36 +79,27 @@
     var earthBtn = document.getElementById("earth-btn");
     var earthCard = document.getElementById("earth");
     
+    
     //on click event
     dolphinBtn.addEventListener("click", showDolphin);
     function showDolphin() {
-      dolphinCard.classList.toggle("hideCard");
-      // islandCard.className = hideCard;
-      // earthCard.className = hideCard;
+      dolphinCard.style.display = 'grid';
+      islandCard.style.display = 'none';
+      earthCard.style.display = 'none';
     }
     islandBtn.addEventListener("click", showIsland);
     function showIsland() {
-      islandCard.classList.toggle("hideCard");
-      // dolphinCard.className = hideCard;
-      // earthCard.className = hideCard;
+      dolphinCard.style.display ='none';
+      islandCard.style.display = 'grid';
+      earthCard.style.display = 'none';
     }
     earthBtn.addEventListener("click", showEarth);
     function showEarth() {
-      earthCard.classList.toggle("hideCard");
-      // dolphinCard.className = hideCard;
-      // islandCard.className = hideCard;
+      dolphinCard.style.display = 'none';
+      islandCard.style.display = 'none';
+      earthCard.style.display = 'grid';
     }
  
-
-// document.getElementById("dolphinBtn").addEventListener( "click", buttonAction );
-//  function buttonAction() {
-// fadeIn.play();
-// }
-
-    // document.getElementById("dolphinBtn").addEventListener( "click", buttonAction );
-    // function otherButtonAction() {
-    //   fadeIn.reverse();
-    // }
   </script>
 </body>
 </html>
