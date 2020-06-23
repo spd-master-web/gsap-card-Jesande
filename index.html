@@ -7,6 +7,18 @@
   <title>GSAP Cards</title>
   <link href="https://fonts.googleapis.com/css?family=Taviraj|Work+Sans:300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* hide Cards with CSS */
+    #dolphin {
+      display: grid;
+    }
+    #island {
+      display: none;
+    }
+    #earth {
+      display: none;
+    }
+  </style>
 </head>
 <body onload="hideCards()">
 
@@ -40,7 +52,7 @@
         <p class="card__description">A report by experts from 27 national science academies has set out the widespread damage global heating is already causing to people’s health and the increasingly serious impacts expected in future. Scorching heatwaves and floods will claim more victims as extreme weather increases but there are serious indirect effects too, from spreading mosquito-borne diseases to worsening mental health.</p>
         <a href="#" class="card__link">Read the  health report</a>
       </header>
-    </article> 
+    </article>
 
   </div>
 
@@ -57,7 +69,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
 
   <script>
-
     //set the variables
     var dolphinBtn = document.getElementById("dolphin-btn");
     var dolphinCard = document.getElementById("dolphin");
@@ -65,14 +76,6 @@
     var islandCard = document.getElementById("island");
     var earthBtn = document.getElementById("earth-btn");
     var earthCard = document.getElementById("earth");
-    
-    
-    //hide Cards on load
-    function hideCards() {
-      dolphinCard.style.display = 'grid';
-      islandCard.style.display = 'none';
-      earthCard.style.display = 'none';
-    }
 
     //Simple animation with timeline
     function fadeIn() {
@@ -80,13 +83,12 @@
       timeline.from(".card__image--bg", {x:-100, duration: .5, alpha: 0})
       timeline.to(".card__image--bg" , {scale:.98, duration: 2, repeat: -1, yoyo: true}, .5)
       timeline.from(".card__image", {x:-100, duration: .5, alpha: 0}, .5)
-      timeline.from(".card__image", {y:5 , duration: 1, repeat: -1, yoyo: true}, 1); 
+      timeline.from(".card__image", {y:5 , duration: 1, repeat: -1, yoyo: true}, 1);
       timeline.from(".card__title", {x:-100, duration: .5, alpha: 0}, 1)
       timeline.from(".card__description", {x:-100, duration: .5, alpha: 0}, 1.5)
       timeline.from(".card__link", {x:-100, duration: .5, alpha: 0}, 2);
     };
-    
-    
+
     //on click event
     dolphinBtn.addEventListener("click", showDolphin);
     function showDolphin() {
@@ -106,7 +108,7 @@
       islandCard.style.display = 'none';
       earthCard.style.display = 'grid';
     }
- 
+
   </script>
 </body>
 </html>
