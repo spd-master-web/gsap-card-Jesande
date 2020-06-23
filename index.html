@@ -18,7 +18,7 @@
       <header class="card__header">
         <h2 class="card__title">Dolphins and plastic</h2>
         <p class="card__description">Almost ten per cent of whales, dolphins, and porpoises examined as part of a new Irish study were found to have plastics in their digestive tracts. The study published in Environmental Pollution found that 8.5 per cent (45 individuals) of Irish cetaceans tested had marine debris in their stomachs and intestines.</p>
-        <a href="#" class="card__link">Learn about the research</a>
+        <a href="#" class="card__link" >Learn about the research</a>
       </header>
     </article>
 
@@ -46,9 +46,12 @@
 
   <nav class="navigation">
     <ul class="navigation__list">
-      <li class="navigation__listitem"><a href="#dolphin" class="navigation__link" id="dolphin-btn">Dolphins and plastic</a></li>
+      <!-- <li class="navigation__listitem"><a href="#dolphin" class="navigation__link" id="dolphin-btn">Dolphins and plastic</a></li>
       <li class="navigation__listitem"><a href="#island" class="navigation__link" id="island-btn">Palm oil effects</a></li>
-      <li class="navigation__listitem"><a href="#earth" class="navigation__link" id="earth-btn">Climate crisis</a></li>
+      <li class="navigation__listitem"><a href="#earth" class="navigation__link" id="earth-btn">Climate crisis</a></li> -->
+      <li class="navigation__listitem"><a href="#dolphin" class="navigation__link" id="dolphin-btn" onclick="fadeIn()">Dolphins and plastic</a></li>
+      <li class="navigation__listitem"><a href="#island" class="navigation__link" id="island-btn" onclick="fadeIn()">Palm oil effects</a></li>
+      <li class="navigation__listitem"><a href="#earth" class="navigation__link" id="earth-btn" onclick="fadeIn()">Climate crisis</a></li>
     </ul>
   </nav>
 
@@ -58,16 +61,30 @@
 
   <script>
     
-    //Simple animation
-    function moveElement(selector, xValue, delayValue) {
-      gsap.from(selector, { x: xValue, duration: 1, alpha: 0, delay: delayValue });
-    };
-    moveElement(".card__image--bg", -100, .2);
-    moveElement(".card__image", -100, .5);
-    moveElement(".card__title", -100, .8);
-    moveElement(".card__description", -100, 1.1);
-    moveElement(".card__link", -100, 1.4);
+    // function fadeIn() {
+    //   var tl= gsap.timeline()
+    //     .from(".card__image--bg", {x:-100, delay: .2, duration: 1, alpha: 0})
+    //     .from(".card__image", {x:-100, delay: .4, duration: 1, alpha: 0})
+    //     .from(".card__title", {x:-100, delay: .6, duration: 1, alpha: 0})
+    //     .from(".card__description", {x:-100, delay: .8, duration: 1, alpha: 0})
+    //     .from(".card__link", {x:-100, delay: 1, duration: 1, alpha: 0});
+    // };
+
+    //Simple animation with timeline
+
+    // var fadeIn = gsap.timeline()
     
+    // ".card__image--bg", {x:-100, delay: .2, duration: 1, alpha: 0, paused: true });
+    
+    // var fadeIn = gsap.timeline()
+    function fadeIn() {
+      var timeline = gsap.timeline();
+        timeline.from(".card__image--bg", {x:-100, duration: .5, alpha: 0})
+        timeline.from(".card__image", {x:-100, duration: .5, alpha: 0})
+        timeline.from(".card__title", {x:-100, duration: .5, alpha: 0})
+        timeline.from(".card__description", {x:-100, duration: .5, alpha: 0})
+        timeline.from(".card__link", {x:-100, uration: .5, alpha: 0});
+    };
     
     //set the variables
     var dolphinBtn = document.getElementById("dolphin-btn");
@@ -76,8 +93,6 @@
     var islandCard = document.getElementById("island");
     var earthBtn = document.getElementById("earth-btn");
     var earthCard = document.getElementById("earth");
-    // var fadeIn = gsap.from( ".card", { x: -100, alpha: 0, duration: 1});
-    // var fadeOut = gsap.to( ".card", { x: -100, alpha: 0, duration: 1});
     
     //on click event
     dolphinBtn.addEventListener("click", showDolphin);
@@ -98,7 +113,17 @@
       // dolphinCard.className = hideCard;
       // islandCard.className = hideCard;
     }
-    
+ 
+
+// document.getElementById("dolphinBtn").addEventListener( "click", buttonAction );
+//  function buttonAction() {
+// fadeIn.play();
+// }
+
+    // document.getElementById("dolphinBtn").addEventListener( "click", buttonAction );
+    // function otherButtonAction() {
+    //   fadeIn.reverse();
+    // }
   </script>
 </body>
 </html>
