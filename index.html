@@ -78,38 +78,41 @@
     var earthCard = document.getElementById("earth");
 
     //Simple animation with timeline
-    function fadeIn() {
+    function fadeIn(selector) {
       var timeline = gsap.timeline();
-      timeline.from(".card__image--bg", {x:-100, duration: .5, alpha: 0})
-      timeline.to(".card__image--bg" , {scale:.98, duration: 2, repeat: -1, yoyo: true}, .5)
-      timeline.from(".card__image", {x:-100, duration: .5, alpha: 0}, .5)
-      timeline.from(".card__image", {y:5 , duration: 1, repeat: -1, yoyo: true}, 1);
-      timeline.from(".card__title", {x:-100, duration: .5, alpha: 0}, 1)
-      timeline.from(".card__description", {x:-100, duration: .5, alpha: 0}, 1.5)
-      timeline.from(".card__link", {x:-100, duration: .5, alpha: 0}, 2);
+      timeline.from(selector + " " + ".card__image--bg", {scale:0, duration: 2, alpha: 0});
+      timeline.from(selector + " " + ".card__image", {scale:0, duration: .5, alpha: 0}, .5);
+      timeline.from(selector + " " + ".card__title", {y:-100, duration: .35, alpha: 0, ease: "back"});
+      timeline.from(selector + " " + ".card__description", {y:-100, duration: .35, alpha: 0, ease: "back"});
+      timeline.from(selector + " " + ".card__link", {y:-100, duration: .35, alpha: 0, ease: "back"});
+      gsap.to(selector + " " + ".card__image--bg" , {rotate:360, duration:60, repeat: -1});
+      gsap.to(selector + " " + ".card__image", {y:5, duration: 1, repeat: -1, yoyo: true});
     };
 
     //on click event
     dolphinBtn.addEventListener("click", showDolphin);
     function showDolphin() {
       dolphinCard.style.display = 'grid';
+      fadeIn("#dolphin");
       islandCard.style.display = 'none';
       earthCard.style.display = 'none';
-    }
+    };
     islandBtn.addEventListener("click", showIsland);
     function showIsland() {
       dolphinCard.style.display ='none';
       islandCard.style.display = 'grid';
+      fadeIn("#island");
       earthCard.style.display = 'none';
-    }
+    };
     earthBtn.addEventListener("click", showEarth);
     function showEarth() {
       dolphinCard.style.display = 'none';
       islandCard.style.display = 'none';
       earthCard.style.display = 'grid';
-    }
+      fadeIn("#earth");
+    };
 
-    // start width the dolphjin animation
+    // start with the dolphin animation
     showDolphin();
     fadeIn();
 
